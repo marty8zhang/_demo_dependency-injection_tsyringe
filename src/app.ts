@@ -1,7 +1,13 @@
 // Only needed once before where DI, e.g., `container.resolve()`, happens.
 import 'reflect-metadata';
 import ExampleParentService from './components/ExampleParentService';
-import container from './container';
+import containers from './containers';
 
-const parentService = container.resolve(ExampleParentService);
-parentService.print();
+const defaultService = containers.default.resolve(ExampleParentService);
+defaultService.print();
+
+const serviceVariantOne = containers.variantOne.resolve(ExampleParentService);
+serviceVariantOne.print();
+
+const serviceVariantTwo = containers.variantTwo.resolve(ExampleParentService);
+serviceVariantTwo.print();

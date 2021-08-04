@@ -1,7 +1,8 @@
-import { injectable, inject } from 'tsyringe';
+import { inject, Lifecycle, scoped } from 'tsyringe';
 import ExampleServiceInterface from './ExampleServiceInterface';
 
-@injectable()
+// `@injectable()` will also work for our demo, and it depends on the actual needs.
+@scoped(Lifecycle.ContainerScoped)
 export default class ExampleParentService {
   constructor(
     @inject('ExampleServiceInterface')
